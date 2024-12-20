@@ -108,7 +108,7 @@ def gauss_iter_solve(A, b, x0=None, tol=1e-8, alg='seidel'):
 
     
 
-
+# Some tests to make sure the stuff works...
 a1 = np.array([[3, 2], [4, 6]])
 b1 = np.array([5, 1])
 initial = np.array([1, 1])
@@ -164,6 +164,9 @@ def spline_function(xd, yd, order = 3):
     xd_sorted = np.sort(xd)
     if xd_flat != xd_sorted:
         raise ValueError('The independent variable values should be increasing in value.')
+    
+    # how to get the yd data sorted based on the xd data?------------------------------------------------------
+
 
     # Create the first order Newton's divided difference 
     x_diff = np.diff(xd)
@@ -173,14 +176,9 @@ def spline_function(xd, yd, order = 3):
     # Calculate the linear spline
 
     if order == 1:
+        b = first_diff      # This is the RHS vector of the spline
         def lin_spline(x):
-            a = yd[:-1]     # cutting off one value from the end
-
-
-
-
-
-
+            return x
 
 
 
